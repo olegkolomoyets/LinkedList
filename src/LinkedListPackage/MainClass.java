@@ -17,8 +17,8 @@ public class MainClass {
 
         list.deleteFromEnd();
         list.set(2, "new");
-        list.add(0, "NEW");
-        list.deleteFromBegin();
+//        list.add(0, "NEW");
+//        list.deleteFromBegin();
         System.out.println(list);
         System.out.println(list.get(1));
         }
