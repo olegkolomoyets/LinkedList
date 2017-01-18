@@ -2,7 +2,7 @@ package LinkedListPackage;
 
     class SpecialException extends Throwable {
 
-        public SpecialException(String text) {
+        SpecialException(String text) {
             super(text);
         }
 }

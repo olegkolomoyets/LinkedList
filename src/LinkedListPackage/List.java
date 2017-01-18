@@ -1,13 +1,13 @@
 package LinkedListPackage;
 
-class List<E> {
-    class ListElement<E> {
-        E parameter;
+class List<T> {
+    private class ListElement<T> {
+        T parameter;
         ListElement next;
     }
 
-    ListElement first;
-    ListElement last;
+    private ListElement first;
+    private ListElement last;
 
     public String toString() {
         ListElement first1 = first;
@@ -24,7 +24,7 @@ class List<E> {
     }
 
     //Добавление элемента в начало списка
-    void addToFront(E parameter) {
+    void addToFront(T parameter) {
         ListElement newElem = new ListElement();
         newElem.parameter = parameter;
         if (first == null) {
@@ -37,7 +37,7 @@ class List<E> {
     }
 
     //Добавление элемента в конец списка
-    void addToBack(E parameter) {
+    void addToBack(T parameter) {
         ListElement newElem = new ListElement();
         newElem.parameter = parameter;
         if (last == null) {
@@ -73,7 +73,7 @@ class List<E> {
     }
 
     //удаление элемента
-    void delete(E parameter) throws SpecialException {
+    void delete(T parameter) throws SpecialException {
         if (first == null)      //если список пустой
             throw new SpecialException("Cannot delete from empty list");
         //если нужный элемент первый в списке
@@ -95,18 +95,18 @@ class List<E> {
     }
 
     // Возвращает значение элемента по номеру
-    E get(int position) {
+    T get(int position) {
         ListElement elem = first;
         if (position == 0)
-            return (E) elem.parameter;
+            return (T) elem.parameter;
         while (position > 0) {
             elem = elem.next;
             position--;
         }
-        return (E) elem.parameter;
+        return (T) elem.parameter;
     }
 
-    void set(int position, E parameter) {
+    void set(int position, T parameter) {
         ListElement elem = first;
         if (position == 0)
             first.parameter = parameter;
@@ -118,7 +118,7 @@ class List<E> {
     }
 
     // Добавление єлемента по индексу
-    void add(int position, E parameter) {
+    void add(int position, T parameter) {
 
         ListElement newElem = new ListElement();
         newElem.parameter = parameter;
