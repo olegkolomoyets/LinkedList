@@ -1,16 +1,16 @@
 package LinkedListPackage;
 
 class List<T> {
-    private class ListElement<T> {
+    private class ListElement<U> {
         T parameter;
-        ListElement next;
+        ListElement<T> next;
     }
 
-    private ListElement first;
-    private ListElement last;
+    private  ListElement<T> first;
+    private  ListElement<T> last;
 
     public String toString() {
-        ListElement first1 = first;
+        ListElement<T> first1 = first;
         String s = "[";
 
         while (first1 != null) {  // условие обхода
@@ -25,7 +25,7 @@ class List<T> {
 
     //Добавление элемента в начало списка
     void addToFront(T parameter) {
-        ListElement newElem = new ListElement();
+        ListElement<T> newElem = new  ListElement<T>();
         newElem.parameter = parameter;
         if (first == null) {
             first = newElem;
@@ -38,7 +38,7 @@ class List<T> {
 
     //Добавление элемента в конец списка
     void addToBack(T parameter) {
-        ListElement newElem = new ListElement();
+        ListElement<T> newElem = new  ListElement<T>();
         newElem.parameter = parameter;
         if (last == null) {
             first = newElem;
@@ -65,7 +65,7 @@ class List<T> {
             last = null;
             return;
         }
-        ListElement elem = first;
+        ListElement<T> elem = first;
         while (elem.next.next != null) {
             elem = elem.next;
         }
@@ -81,7 +81,7 @@ class List<T> {
             first = first.next;
             return;
         }
-        ListElement elem = first;
+        ListElement<T> elem = first;
         while (elem.next != null) {
             if (elem.next.parameter == parameter) {
                 if (last == elem.next) {        //если нужный элемент последний в списке
@@ -96,18 +96,18 @@ class List<T> {
 
     // Возвращает значение элемента по номеру
     T get(int position) {
-        ListElement elem = first;
+        ListElement<T> elem = first;
         if (position == 0)
-            return (T) elem.parameter;
+            return elem.parameter;
         while (position > 0) {
             elem = elem.next;
             position--;
         }
-        return (T) elem.parameter;
+        return elem.parameter;
     }
 
     void set(int position, T parameter) {
-        ListElement elem = first;
+        ListElement<T> elem = first;
         if (position == 0)
             first.parameter = parameter;
         while (position > 0) {
@@ -120,9 +120,9 @@ class List<T> {
     // Добавление єлемента по индексу
     void add(int position, T parameter) {
 
-        ListElement newElem = new ListElement();
+        ListElement<T> newElem = new  ListElement<T>();
         newElem.parameter = parameter;
-        ListElement elem = first;
+        ListElement<T> elem = first;
 
         if (position == 0) {
             newElem.next = first;

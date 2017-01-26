@@ -2,7 +2,7 @@ package LinkedListPackage;
 
 public class MainClass {
     public static void main(String[] args) throws SpecialException {
-        List list = new List();
+        List<java.io.Serializable> list = new List<java.io.Serializable>();
 
         list.addToFront(2);
         list.addToFront(1);
